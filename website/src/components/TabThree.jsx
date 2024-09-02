@@ -211,16 +211,19 @@ class TabStyleThree extends Component {
               <div className="tablist-inner">
                 <TabList className="pv-tab-button text-center mt--0">
                   <Tab>
-                    <span>All Project</span>
+                    <span>Todos los Proyectos</span>
                   </Tab>
                   <Tab>
-                    <span>Web Design</span>
+                    <span>Chat Bots</span>
                   </Tab>
                   <Tab>
-                    <span>Logo Design</span>
+                    <span>Community Mannager</span>
                   </Tab>
                   <Tab>
-                    <span>Mobile App</span>
+                    <span>Diseño de Logos e Identidad Visual</span>
+                  </Tab>
+                  <Tab>
+                    <span>Creación de sitios web</span>
                   </Tab>
                 </TabList>
               </div>

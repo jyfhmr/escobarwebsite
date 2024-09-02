@@ -4,7 +4,7 @@ import TextLoop from "react-text-loop";
 //listo
 import FooterTwo from "./components/FooterTwo";
 //listo
-import { FiChevronUp} from "react-icons/fi";
+import { FiChevronUp } from "react-icons/fi";
 import { GoArrowDown } from "react-icons/go";
 //listo
 import TabThree from "./components/TabThree";
@@ -34,7 +34,7 @@ function App() {
     <div>
       <Helmet pageTitle="Designer Portfolio" />
       {/* Start Header Area  */}
-      <HeaderTwo logo="symbol-dark" color="color-black"/>
+      <HeaderTwo logo="symbol-dark" color="color-black" />
       {/* End Header Area  */}
 
       <div className="slider-wrapper">
@@ -51,7 +51,7 @@ function App() {
                     <img
                       src={"https://abogadoaescobarm.com/andres.JPG"}
                       alt="Slider Images"
-                      style={{backgroundSize: "cover", backgroundPosition: "center center"}}
+                      style={{ backgroundSize: "cover", backgroundPosition: "center center" }}
                     />
                   </div>
                 </div>
@@ -59,12 +59,12 @@ function App() {
                   <div className={`inner ${value.textPosition}`}>
                     {value.category ? <span>{value.category}</span> : ""}
                     <h1 className="title">
-                    Andrés Escobar <br />
+                      Andrés Escobar <br />
                       <TextLoop>
-                        <span> Empresa X</span>
+                        <span>Space Marketing</span>
                       </TextLoop>{" "}
                     </h1>
-                    <h2>Conoce nuestro SEO <GoArrowDown/></h2>
+                    <h2>Conoce nuestro SEO <GoArrowDown /></h2>
                     {value.description ? (
                       <p className="description">{value.description}</p>
                     ) : (
@@ -91,33 +91,34 @@ function App() {
         {/* End Single Slide */}
       </div>
 
-      <div className="about-area about-position-top pb--120  bg_color--1">
-                    <div className="about-wrapper">
-                        <div className="container">
-                            <div className="row row--35 align-items-center">
-                                <div className="col-lg-5">
-                                    <div className="thumbnail">
-                                        <img className="w-100"  alt="About Images"/>
-                                    </div>
-                                </div>
-                                <div className="col-lg-7">
-                                    <div className="about-inner inner pt--100">
-                                        <div className="section-title">
-                                            <h2 className="title">dawd</h2>
-                                            <p className="description">dawdwa</p>
-                                        </div>
-                                        <div className="row mt--30">
-                                            <TabTwo tabStyle="tab-style--1" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div className="about-area about-position-top pb--120  bg_color--1" style={{paddingBottom: "30px !important"}}>
+        <div className="about-wrapper">
+          <div className="container">
+            <div className="row row--35 align-items-center">
+              <div className="col-lg-5">
+                <div className="thumbnail" style={{ marginTop: "5vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <img className="w-50" src="https://abogadoaescobarm.com/newImg2.jpeg" alt="About Images" style={{}} />
                 </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="about-inner inner pt--100">
+                  <div className="section-title">
+                    <h3 className="title" style={{textAlign: "center"}}>Conoce más sobre mí</h3>
+
+                  </div>
+                  <div className="row mt--30">
+                    <TabTwo tabStyle="tab-style--1" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Start Designer Portfolio  */}
       <div className="designer-portfolio-area ptb--120 bg_color--1">
+        <h3 style={{width: "100%", height: "10vh", display: "flex", alignItems: "center", justifyContent: "center"}} className="title">Clientes</h3>
         <div className="wrapper plr--70 plr_sm--30 plr_md--30">
           <TabThree column="col-lg-4 col-md-6 col-sm-6 col-12" />
         </div>

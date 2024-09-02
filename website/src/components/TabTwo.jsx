@@ -3,10 +3,10 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 class TabsTwo extends Component {
   render() {
-    let tab1 = "Habilidades",
-      tab2 = "Awards",
-      tab3 = "Experience",
-      tab4 = "Education & Certification";
+    let tab1 = "Educación",
+      tab2 = "Misión",
+      tab3 = "Valores",
+      tab4 = "Visión";
     const { tabStyle } = this.props;
     return (
       <div>
@@ -27,25 +27,26 @@ class TabsTwo extends Component {
                     <div className="single-tab-content">
                       <ul>
                         <li>
-                          <a href="/service">
-                            Construcción de Aplicaciones Web <span> - Robustas</span>
+                          <a >
+                            Hola, mi nombre es Andrés Escobar
                           </a>
-                          Con arquitectura de software limpia y metodología ágil
+                          Venezolano, Abogado, egresado de la universidad José Antonio Páez, en el año 2015 y Asesor de Marketing Digital desde el 2021, CEO de Space Marketing, creada en el 2023.
                         </li>
+
+                      </ul>
+                    </div>
+                  </TabPanel>
+
+                  <TabPanel>
+                    <div className="single-tab-content">
+                      <ul>
                         <li>
-                          <a href="/service">
-                            Manejo de tecnologías full-stack
-                            <span> - Mayormente en Javascript</span>
+                          <a >
+                            El propósito principal de Space Marketing
                           </a>
-                          Node.JS, React, Next.JS, Nest.JS, MySQL, TypeORM
+                          Potenciar los proyectos de todos los emprendedores y empresarios y hacerlos crecer.
                         </li>
-                        <li>
-                          <a href="/service">
-                            Automatización de Procesos 
-                          </a>
-                          Con herramientas tales como WebScrapping, Macros, Robot.js he conseguido 
-                          ...
-                        </li>
+
                       </ul>
                     </div>
                   </TabPanel>
@@ -55,78 +56,30 @@ class TabsTwo extends Component {
                       <ul>
                         <li>
                           <a href="/service">
-                            Awwwards.com <span>- Winner</span>
+                            Calidad
                           </a>{" "}
-                          2019 - 2024
-                        </li>
-                        <li>
-                          <a href="/service">
-                            CSS Design Awards <span>- Winner</span>
-                          </a>{" "}
-                          2017 - 2024
-                        </li>
-                        <li>
-                          <a href="/service">
-                            Design nominees <span>- site of the day</span>
-                          </a>{" "}
-                          2013- 2024
+                          Ser un referente como agencia de publicidad y marketing digital, estar continuamente a la vanguardia y poder ayudar a empresarios y emprendedores a cumplir sus metas
                         </li>
                       </ul>
                     </div>
                   </TabPanel>
+
 
                   <TabPanel>
                     <div className="single-tab-content">
                       <ul>
                         <li>
                           <a href="/service">
-                            Sr. Front-end Engineer<span> - Google</span>
+                           Responsabilidad
                           </a>{" "}
-                          2018 - Current
+                          Destacamos la comunicación y la profesionalidad, ante todo, no solo con el cliente sino como cultura interna del equipo. 
                         </li>
-                        <li>
-                          <a href="/service">
-                            Front-end Engineer<span> - Microsoft</span>
-                          </a>{" "}
-                          2017 - 2024
-                        </li>
-                        <li>
-                          <a href="/service">
-                            Software Engineer<span> - Alibaba </span>
-                          </a>{" "}
-                          2013- 2024
-                        </li>
+                        
                       </ul>
                     </div>
                   </TabPanel>
 
-                  <TabPanel>
-                    <div className="single-tab-content">
-                      <ul>
-                        <li>
-                          <a href="/service">
-                            BSc In CSE
-                            <span> - ABC University, Los Angeles, CA</span>
-                          </a>{" "}
-                          2010
-                        </li>
-                        <li>
-                          <a href="/service">
-                            Diploma in Computer Science
-                            <span> - Gamma Technical Institute</span>
-                          </a>{" "}
-                          2009
-                        </li>
-                        <li>
-                          <a href="/service">
-                            Graphic Designer
-                            <span> - ABC Institute, Los Angeles, CA</span>
-                          </a>{" "}
-                          2007
-                        </li>
-                      </ul>
-                    </div>
-                  </TabPanel>
+
                 </Tabs>
               </div>
             </div>
