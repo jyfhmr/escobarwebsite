@@ -1,24 +1,15 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import {
-  FaTwitter,
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa";
 import { FiX, FiMenu } from "react-icons/fi";
-
-import logoDefault from "../assets/images/logo/logo.png";
-import logoLight from "../assets/images/logo/logo-light.png";
-import logoDark from "../assets/images/logo/logo-dark.png";
-import logoSymbolDark from "../assets/images/logo/logo-symbol-dark.png";
-import logoSymbolLight from "../assets/images/logo/logo-symbol-light.png";
+import logoDefault from "../assets/images/logo.png";
+import logoSyles from "./logoStyles.css";
 
 const SocialShare = [
-  { Social: <FaFacebookF />, link: "https://www.facebook.com/" },
-  { Social: <FaLinkedinIn />, link: "https://www.linkedin.com/" },
-  { Social: <FaInstagram />, link: "https://www.instagram.com/" },
-  { Social: <FaTwitter />, link: "https://twitter.com/" },
+  {
+    Social: <FaInstagram />,
+    link: "https://www.instagram.com/spacemarketingve/",
+  },
 ];
 
 class Header extends Component {
@@ -26,17 +17,46 @@ class Header extends Component {
     super(props);
     this.menuTrigger = this.menuTrigger.bind(this);
     this.CLoseMenuTrigger = this.CLoseMenuTrigger.bind(this);
-    //  this.subMetuTrigger = this.subMetuTrigger.bind(this);
     window.addEventListener("load", function () {
       console.log("All assets are loaded");
     });
   }
+
   menuTrigger() {
     document.querySelector(".header-wrapper").classList.toggle("menu-open");
   }
 
   CLoseMenuTrigger() {
     document.querySelector(".header-wrapper").classList.remove("menu-open");
+  }
+
+  handleNavigation = (e, targetId, targetRoute = "/") => {
+    e.preventDefault();
+
+    const { navigate, location } = this.props;
+
+    if (location.pathname !== targetRoute) {
+      // Si no estamos en la ruta deseada, redirigimos a esa ruta y luego desplazamos
+      navigate(targetRoute, { state: { scrollToId: targetId } });
+    } else {
+      // Si ya estamos en la ruta deseada, simplemente hacemos scroll al elemento
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  componentDidMount() {
+    // Revisar si hay un estado de "scrollToId" para hacer scroll al cargar la página
+    const { location } = this.props;
+    if (location.state && location.state.scrollToId) {
+      const targetId = location.state.scrollToId;
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   }
 
   render() {
@@ -53,17 +73,15 @@ class Header extends Component {
     }
     const { logo, color = "default-color" } = this.props;
     let logoUrl;
-    if (logo === "light") {
-      logoUrl = <img src={logoLight} alt="Digital Agency" />;
-    } else if (logo === "dark") {
-      logoUrl = <img src={logoDark} alt="Digital Agency" />;
-    } else if (logo === "symbol-dark") {
-      logoUrl = <img src={logoSymbolDark} alt="Digital Agency" />;
-    } else if (logo === "symbol-light") {
-      logoUrl = <img src={logoSymbolLight} alt="Digital Agency" />;
-    } else {
-      logoUrl = <img src={logoDefault} alt="Digital Agency" />;
-    }
+    logoUrl = (
+      <img
+        src={logoDefault}
+        className="logoStyles"
+        alt="Digital Agency"
+        width={"100px"}
+      />
+    );
+
     return (
       <header
         className={`header-area header-style-two header--transparent ${color}`}
@@ -76,150 +94,82 @@ class Header extends Component {
             <nav className="mainmenunav d-lg-block ml--50">
               <ul className="mainmenu">
                 <li className="has-droupdown">
-                  <Link to="#">Home</Link>
+                  <Link to="/">Inicio</Link>
                   <ul className="submenu">
                     <li>
-                      <Link to="/main-demo">Main Demo</Link>
+                      <a
+                        href="#principio"
+                        onClick={(e) =>
+                          this.handleNavigation(e, "principio", "/")
+                        }
+                      >
+                        Principio
+                      </a>
                     </li>
                     <li>
-                      <Link to="/dark-main-demo">Main Demo Dark</Link>
+                      <a
+                        href="#conoceNuestroSeo"
+                        onClick={(e) =>
+                          this.handleNavigation(e, "conoceNuestroSeo", "/")
+                        }
+                      >
+                        Sobre Nuestro CEO
+                      </a>
                     </li>
                     <li>
-                      <Link to="/creative-agency">Creative Agency</Link>
+                      <a
+                        href="#servicios"
+                        onClick={(e) =>
+                          this.handleNavigation(e, "servicios", "/")
+                        }
+                      >
+                        Servicios
+                      </a>
                     </li>
                     <li>
-                      <Link to="/creative-landing">Creative One Page</Link>
+                      <a
+                        href="#ebook"
+                        onClick={(e) =>
+                          this.handleNavigation(e, "ebook", "/")
+                        }
+                      >
+                        Adquiere nuestro E-BOOK
+                      </a>
                     </li>
                     <li>
-                      <Link to="/creative-portfolio">Creative Portfolio</Link>
+                      <a
+                        href="#clientes"
+                        onClick={(e) =>
+                          this.handleNavigation(e, "clientes", "/")
+                        }
+                      >
+                        Clientes
+                      </a>
                     </li>
                     <li>
-                      <Link to="/personal-portfolio">Personal Portfolio</Link>
-                    </li>
-                    <li>
-                      <Link to="/portfolio-landing">Portfolio One Page</Link>
-                    </li>
-                    <li>
-                      <Link to="/dark-portfolio-landing">
-                        Portfolio One Page 02
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/digital-agency">Digital Agency</Link>
-                    </li>
-                    <li>
-                      <Link to="/startup">Startup</Link>
-                    </li>
-                    <li>
-                      <Link to="/paralax">Paralax</Link>
-                    </li>
-                    <li>
-                      <Link to="/portfolio-home">Minimal Portfolio</Link>
-                    </li>
-                    <li>
-                      <Link to="/business">Business</Link>
-                    </li>
-                    <li>
-                      <Link to="/home-particles">Home Particles</Link>
-                    </li>
-                    <li>
-                      <Link to="/studio-agency">Studio Agency</Link>
-                    </li>
-                    <li>
-                      <Link to="/designer-portfolio">Designer Portfolio</Link>
-                    </li>
-                    <li>
-                      <Link to="/interactive-agency">Interactive Agency</Link>
+                      <a
+                        href="#empresas"
+                        onClick={(e) =>
+                          this.handleNavigation(e, "empresas", "/")
+                        }
+                      >
+                        Información de la Empresa
+                      </a>
                     </li>
                   </ul>
                 </li>
                 <li className="has-droupdown">
-                  <Link to="/service">Service</Link>
+                  <a
+                    href="#cursos"
+                    onClick={(e) => this.handleNavigation(e, "cursos", "/")}
+                  >
+                    Cursos
+                  </a>
                   <ul className="submenu">
                     <li>
-                      <Link to="/service">Service</Link>
-                    </li>
-                    <li>
-                      <Link to="/service-details">Service Details</Link>
+                      <Link to="/courses">Inscribirse</Link>
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-
-                <li className="has-droupdown">
-                  <Link to="#pages">Pages</Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link to="/blog">Blog List</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog-details">Blog Details</Link>
-                    </li>
-                    <li>
-                      <Link to="/service">Service</Link>
-                    </li>
-                    <li>
-                      <Link to="/service-details">Service Details</Link>
-                    </li>
-                    <li>
-                      <Link to="/portfolio">Portfolio</Link>
-                    </li>
-                    <li>
-                      <Link to="/portfolio-details">Portfolio Details</Link>
-                    </li>
-                    <li>
-                      <Link to="/404">404</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-droupdown">
-                  <Link to="#">Blocks</Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link to="/portfolio">Portfolio</Link>
-                    </li>
-                    <li>
-                      <Link to="/team">Team</Link>
-                    </li>
-                    <li>
-                      <Link to="/service">Service</Link>
-                    </li>
-                    <li>
-                      <Link to="/video-popup">Video Popup</Link>
-                    </li>
-                    <li>
-                      <Link to="/progressbar">Progressbar</Link>
-                    </li>
-                    <li>
-                      <Link to="/gallery">Gallery</Link>
-                    </li>
-                    <li>
-                      <Link to="/counters">Counters</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">Blog List</Link>
-                    </li>
-                    <li>
-                      <Link to="/clint-logo">Clint Logo</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact-form">Contact Form</Link>
-                    </li>
-                    <li>
-                      <Link to="/google-map">Google Map</Link>
-                    </li>
-                    <li>
-                      <Link to="/columns">Columns</Link>
-                    </li>
-                    <li>
-                      <Link to="/pricing-table">Pricing Table</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </nav>
@@ -237,9 +187,9 @@ class Header extends Component {
             <div className="header-btn">
               <a
                 className="rn-btn"
-                href="https://themeforest.net/checkout/from_item/25457315?license=regular"
+                href="https://api.whatsapp.com/send?phone=584244560374"
               >
-                <span>buy now</span>
+                <span>CONTÁCTANOS VÍA WHATSAPP</span>
               </a>
             </div>
             {/* Start Humberger Menu  */}
@@ -263,4 +213,13 @@ class Header extends Component {
     );
   }
 }
-export default Header;
+
+// Componente funcional para envolver el componente de clase
+function HeaderWithRouter(props) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  return <Header {...props} navigate={navigate} location={location} />;
+}
+
+export default HeaderWithRouter;

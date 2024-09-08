@@ -70,6 +70,7 @@
     "semver": "7.6.2",
     "slick-carousel": "^1.8.1",
     "style-loader": "4.0.0",
+    "sweetalert2": "^11.13.3",
     "ts-pnp": "1.2.0",
     "tsparticles": "^3.5.0",
     "url-loader": "4.1.1",
