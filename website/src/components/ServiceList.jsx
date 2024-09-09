@@ -1,5 +1,5 @@
 import React ,{ Component }from "react";
-import { FiCast , FiLayers , FiUsers , FiMonitor } from "react-icons/fi";
+import { FiCast , FiLayers , FiUsers , FiMonitor , FiVideo} from "react-icons/fi";
 
 const ServiceList = [
     {
@@ -28,9 +28,10 @@ const ServiceList = [
         description: 'Potencia tu negocio con estrategias de marketing efectivas y personalizadas. Analizamos tu mercado, creamos planes de acción y te acompañamos en la ejecución para maximizar tu presencia y resultados.'
     },
     {
-        icon: <FiUsers />,
-        title: 'Edición de videos',
-        description: 'Potencia tu negocio con estrategias de marketing efectivas y personalizadas. Analizamos tu mercado, creamos planes de acción y te acompañamos en la ejecución para maximizar tu presencia y resultados.'
+        icon: <FiVideo />,
+title: 'Edición de videos',
+description: 'Transforma tus ideas en videos impactantes y de alta calidad. Ofrecemos servicios de edición profesional, adaptados a tus necesidades, para que puedas transmitir tu mensaje de manera creativa y efectiva.'
+
     }
 ]
 
