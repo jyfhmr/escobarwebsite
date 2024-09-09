@@ -122,12 +122,12 @@ function App() {
                     <h1 className="title">
                    
                       <TextLoop>
-                        <span>Space Marketing</span>
+                        <span style={{color: "#ffbf1a"}}>Space Marketing</span>
                       </TextLoop>{" "}
                     </h1>
-                    <h2 >
+                    <h3 >
                       Conoce nuestro CEO <GoArrowDown />
-                    </h2>
+                    </h3>
                     {value.description ? (
                       <p className="description">{value.description}</p>
                     ) : (
@@ -246,7 +246,7 @@ function App() {
                   </h2>
                   <p>
                     Con una oferta de tiempo limitado, sólamente por{" "}
-                    <span style={{ color: "#f9004d" }}>1.99$</span> podrás
+                    <span style={{ color: "rgb(255, 191, 26)" }}>1.99$</span> podrás
                     aprender sobre:
                   </p>
                 </div>

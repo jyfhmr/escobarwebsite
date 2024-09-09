@@ -368,11 +368,11 @@ p:last-child {
 }
 
 .theme-gradient {
-    background: linear-gradient(-259deg, #f81f01 0, #ee076e 100%);
+    background: linear-gradient(-259deg, rgb(255, 191, 26) 0, rgb(241, 193, 71) 100%);
 }
 .bg-theme-gradient {
-    background: #f81f01;
-    background: linear-gradient(145deg, #f81f01 0%, #ee076e 100%);
+    background: rgb(207, 154, 20);
+    background: linear-gradient(145deg, rgb(255, 191, 26) 0%, rgb(241, 193, 71) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f81f01', endColorstr='#ee076e',GradientType=1 );
 }
 
